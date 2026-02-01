@@ -1,5 +1,7 @@
+// remotion/Root.js
 import { Composition } from 'remotion';
 import { IntroVideo } from './IntroVideo';
+
 export const RemotionRoot = () => {
   return (
     <>
