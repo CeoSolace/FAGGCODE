@@ -1,14 +1,22 @@
-import { useCurrentFrame, useVideoConfig } from 'remotion';
+import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
 import { AbsoluteFill, Sequence, Audio, Img } from 'remotion';
-import { fade, scale } from '@remotion/animation';
 import { loadFont } from '@remotion/google-fonts/Montserrat';
+
 const { fontFamily } = loadFont();
+
 export const IntroVideo = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const titleOpacity = fade(frame, { from: 0 * fps, duration: 1 * fps });
-  const titleScale = scale(frame, { from: 0 * fps, by: 1.2, duration: 1 * fps });
-  const subtitleOpacity = fade(frame, { from: 5 * fps, duration: 1 * fps });
+
+  // Fade-in opacity from 0 to 1 over the first second (equivalent to original fade)
+  const titleOpacity = interpolate(frame, [0 * fps, 1 * fps], [0, 1], { extrapolateRight: 'clamp' });
+
+  // Scale from 1 to 1.2 over the first second (adjusted to start from 1 assuming original intent; original 'by: 1.2' might mean multiply by 1.2)
+  const titleScale = interpolate(frame, [0 * fps, 1 * fps], [1, 1.2], { extrapolateRight: 'clamp' });
+
+  // Subtitle fade-in opacity from 0 to 1 starting at 5 seconds
+  const subtitleOpacity = interpolate(frame, [5 * fps, 6 * fps], [0, 1], { extrapolateRight: 'clamp' });
+
   return (
     <AbsoluteFill style={{ backgroundColor: '#1f2937', fontFamily }}>
       <Sequence from={0} durationInFrames={900}>
