@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.4.2",
-    "@remotion/animation": "^4.0.110",
     "@remotion/cli": "^4.0.110",
     "@remotion/google-fonts": "^4.0.110",
     "@remotion/media-utils": "^4.0.110",
