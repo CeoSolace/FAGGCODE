@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { Player } from '@remotion/player';
-import { IntroVideo } from '@/remotion/IntroVideo';
+import { IntroVideo } from '../../../remotion/IntroVideo';
 
 export default function Home() {
   const { data: session } = useSession();
