@@ -26,9 +26,10 @@ export const authOptions = {
   },
 
   pages: {
-    signIn: '/login',
+    signIn: '/login', // custom login page
   },
 };
 
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };
