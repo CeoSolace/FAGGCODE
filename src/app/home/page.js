@@ -26,10 +26,6 @@ export default function Home() {
         style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
         autoPlay
       />
-
-      <div className="mt-6">
-        <h2 className="text-2xl font-semibold mb-2">Team Leaderboard</h2>
-      </div>
     </div>
   );
 }
