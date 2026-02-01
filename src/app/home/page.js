@@ -7,19 +7,30 @@ import { IntroVideo } from '../../../remotion/IntroVideo';
 export default function Home() {
   const { data: session, status } = useSession();
 
-  // Handle loading state
+  // Loading state
   if (status === 'loading') {
-    return <p className="text-center text-lg">Loading...</p>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-lg text-gray-700">Loading...</p>
+      </div>
+    );
   }
 
-  // Handle unauthenticated state
+  // Unauthenticated state
   if (!session) {
-    return <p className="text-center text-lg">You must be logged in to view this page.</p>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-lg text-red-600">
+          You must be logged in to view this page.
+        </p>
+      </div>
+    );
   }
 
+  // Authenticated state
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">
+    <div className="p-6 bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-10">
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">
         Welcome, {session.user?.name ?? 'User'}!
       </h1>
 
