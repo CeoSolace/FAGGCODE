@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "mongodb"
+  url = env("MONGO_URI")
+}
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  email String? @unique
+  discordId String? @unique
+  role String?
+  status String?
+  team String?
+  games String[] // Array of games e.g. ["CS:GO", "League of Legends", "Valorant", "Fortnite", "Call of Duty", "Apex Legends", "Rainbow Six Siege", "Overwatch", "Rocket League"]
+}
+model Team {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String @unique
+  players User[]
+  managers User[]
+  signedAt DateTime?
+  games String[] // Games the team plays e.g. ["CS:GO", "League of Legends", "Valorant", "Fortnite", "Call of Duty", "Apex Legends", "Rainbow Six Siege", "Overwatch", "Rocket League"]
+}
+model Contract {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  template String
+  signedBy User[]
+}
