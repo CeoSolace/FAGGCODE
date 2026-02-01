@@ -1,0 +1,40 @@
+{
+  "name": "freeagents",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@auth/mongodb-adapter": "^3.4.2",
+    "@remotion/animation": "^4.0.110",
+    "@remotion/cli": "^4.0.110",
+    "@remotion/google-fonts": "^4.0.110",
+    "@remotion/media-utils": "^4.0.110",
+    "@remotion/player": "^4.0.110",
+    "discord.js": "^14.15.3",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.6.0",
+    "next": "14.2.7",
+    "next-auth": "5.0.0-beta.22",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.0",
+    "remotion": "^4.0.110",
+    "stripe": "^17.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.7",
+    "postcss": "^8.4.44",
+    "tailwindcss": "^3.4.10"
+  }
+}
