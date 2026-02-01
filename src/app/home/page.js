@@ -1,13 +1,12 @@
-import { getServerSession } from 'next-auth/next';
+import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { Player } from '@remotion/player';
 import { IntroVideo } from '../../../remotion/IntroVideo';
 
 export default async function Home() {
-  // Get the user session on the server
+  // Get session on server
   const session = await getServerSession(authOptions);
 
-  // Unauthenticated view
   if (!session) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -18,7 +17,6 @@ export default async function Home() {
     );
   }
 
-  // Authenticated view
   return (
     <div className="p-6 bg-white shadow-md rounded-lg max-w-4xl mx-auto mt-10">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
